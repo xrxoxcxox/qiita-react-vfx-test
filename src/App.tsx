@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { VFXSpan } from "react-vfx";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="container">
+      <VFXSpan shader="uvGradient">uvGradient</VFXSpan>
+      <VFXSpan shader="rainbow">rainbow</VFXSpan>
+      <VFXSpan shader="glitch">glitch</VFXSpan>
+      <VFXSpan shader="rgbGlitch">rgbGlitch</VFXSpan>
+      <VFXSpan shader="rgbShift">rgbShift</VFXSpan>
+      <VFXSpan shader="shine">shine</VFXSpan>
+      <VFXSpan shader="blink">blink</VFXSpan>
+      <VFXSpan shader="spring">spring</VFXSpan>
+      <VFXSpan
+        shader="duotone"
+        uniforms={{
+          color1: [1, 0.2, 0.2, 1],
+          color2: [0.2, 0.2, 1, 1],
+          speed: 1,
+        }}
+      >
+        duotone
+      </VFXSpan>
+      <VFXSpan
+        shader="tritone"
+        uniforms={{
+          color1: [1, 0.2, 0.2, 1],
+          color2: [0.2, 0.2, 1, 1],
+          color3: [0.2, 1, 0.2, 1],
+          speed: 1,
+        }}
+      >
+        tritone
+      </VFXSpan>
+      <VFXSpan shader="hueShift" uniforms={{ shift: 0.2 }}>hueShift</VFXSpan>
+      <VFXSpan shader="sinewave">sinewave</VFXSpan>
+      <VFXSpan shader="pixelate">pixelate</VFXSpan>
+      <VFXSpan shader="halftone">halftone</VFXSpan>
+      <VFXSpan shader="slitScanTransition">slitScanTransition</VFXSpan>
+      <VFXSpan shader="warpTransition">warpTransition</VFXSpan>
+      <VFXSpan shader="pixelateTransition">pixelateTransition</VFXSpan>
+    </div>
+  );
 }
 
-export default App
+export default App;
